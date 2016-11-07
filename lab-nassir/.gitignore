@@ -1,5 +1,6 @@
 # slugram ignore
 db
+build
 *.env
 data/*
 coverage

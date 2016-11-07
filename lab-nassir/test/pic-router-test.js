@@ -389,7 +389,7 @@ describe('testing pic-router', function(){
       })
     })
 
-    
+
     describe('with ?name=do', function(){
       before(done => mockManyPics.call(this, 100, done))
       it ('should return an array of pics', done => {

@@ -77,7 +77,6 @@
     "lorem-ipsum": "^1.0.3",
     "mocha": "^3.1.0",
     "nodemon": "^1.11.0",
-    "superagent": "^2.3.0",
     "webpack-dev-server": "^1.16.2"
   }
 }

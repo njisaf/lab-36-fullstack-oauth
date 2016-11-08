@@ -1,11 +1,12 @@
 'use strict'
 
 const Router = require('express').Router
+const User = require('../model/user.js')
 const createError = require('http-errors')
 const jsonParser = require('body-parser').json()
 const debug = require('debug')('slugram:auth-router')
 const basicAuth = require('../lib/basic-auth-middleware.js')
-const User = require('../model/user.js')
+const googleOAuth = require('../lib/google-oauth-middleware.js');
 
 // module constants
 const authRouter = module.exports = Router()
@@ -45,7 +46,7 @@ authRouter.get('/api/auth/oauth_callback', googleOAuth, function(req, res) {
   debug('GET /api/auth/oauth_callback');
 
   if (req.googleError) {
-    return res.redirect('/?error=access_denied');
+    return res.redirect('/');
   }
 
   User.findOne({email: req.googleOAuth.email})

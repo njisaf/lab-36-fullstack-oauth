@@ -8,13 +8,13 @@ function HomeController($log, $location, authService){
   $log.debug('init homeCtrl');
   this.oneAtATime = true;
 
-  let query = $location.search();
-  if (query.token) {
-    authService.setToken(query.token)
-    .then(() => {
-      $location.path('/#/home');
-    });
-  }
+  // let query = $location.search();
+  // if (query.token) {
+  //   authService.setToken(query.token)
+  //   .then(() => {
+  //     $location.path('/#/home');
+  //   });
+  // }
 
   let googleAuthBase = 'https://accounts.google.com/o/oauth2/v2/auth';
   let googleAuthResponseType = 'response_type=code';

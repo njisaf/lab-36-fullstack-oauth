@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
 
   if (req.query.error) {
     req.googleError = new Error(req.query.error);
-    return next;
+    return next();
   }
 
   let data = {

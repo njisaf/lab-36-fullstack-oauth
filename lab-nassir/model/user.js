@@ -16,6 +16,13 @@ const userSchema = Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   findHash: {type: String, unique: true},
+  google: {
+    googleID: {type: String},
+    refreshToken: {type: String},
+    accessToken: {type: String},
+    tokenTimeStamp: {type: Date},
+    tokenTTL: {type: Number},
+  },
 })
 
 // for signup
@@ -31,7 +38,7 @@ userSchema.methods.generatePasswordHash = function(password){
   })
 }
 
-// for signin 
+// for signin
 // compare a plain text password with the stored hashed password
 userSchema.methods.comparePasswordHash = function(password){
   debug('comparePasswordHash')
@@ -44,7 +51,7 @@ userSchema.methods.comparePasswordHash = function(password){
   })
 }
 
-// for signup 
+// for signup
 userSchema.methods.generateFindHash = function(){
   debug('generateFindHash')
   return new Promise((resolve, reject) => {
